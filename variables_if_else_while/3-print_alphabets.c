@@ -1,26 +1,25 @@
 #include <stdio.h>
-
 /**
- * main - Prints the uppercase and lowercase alphabet
+ * main - entry point
  *
- * Return: 0 Always.
+ * retun - 0 (sucess)
+ *
  */
+
 int main(void)
 {
-int i;
-int letter;
+char abc;
+char ABC;
 
-for (i = 0; i < 52; i++)
+for (abc = 'a'; abc <= 'z'; abc++)
 {
-if (i < 26)
-letter = 'A' + i;
-else
-letter = 'a' + i - 26;
-putchar(letter);
-if (i == 25)
-putchar('\n');
+putchar(abc);
+}
+for (ABC = 'A'; ABC <= 'Z'; ABC++)
+{
+putchar(ABC);
 }
 putchar('\n');
+return 0;
 
-return (0);
 }
