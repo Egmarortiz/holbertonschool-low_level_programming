@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
- * main - entry point
+ * main - Entry point, Program prints out the alphabet
  *
- * retun - 0 (sucess)
+ * Return: Always 0 (Sucess)
  *
  */
 
@@ -20,6 +20,6 @@ for (ABC = 'A'; ABC <= 'Z'; ABC++)
 putchar(ABC);
 }
 putchar('\n');
-return 0;
+return (0);
 
 }
