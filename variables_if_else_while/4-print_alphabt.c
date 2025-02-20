@@ -13,8 +13,10 @@ int main(void)
 char abc;
 {
 for (abc = 'a'; abc <= 'z'; abc++)
-if (abc == 'q' || abc == 'e')
+if (abc == 'e' || abc == 'q')
+{
 continue;
+}
 putchar(abc);
 }
 putchar('\n');
