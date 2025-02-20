@@ -2,10 +2,9 @@
 
 /**
  * main - Entry point
- * 
+ *
  * Description: 'the program's description'
- * @parameter: describe the parameter
- * 
+ *
  * Return: Always 0 (Success)
  */
 
@@ -13,7 +12,7 @@ int main(void)
 {
 	char hex;
 
-	for (hex = 0; hex <= 9; hex++)
+	for (hex = '0'; hex <= '9'; hex++)
 	{
 		putchar(hex);
 	}
@@ -23,5 +22,5 @@ int main(void)
 	}
 
 	putchar('\n');
-		return (0);
+	return (0);
 }
