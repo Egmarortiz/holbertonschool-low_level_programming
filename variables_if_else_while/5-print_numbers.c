@@ -4,21 +4,18 @@
  * main - Entry point
  *
  * Description: 'the program's description'
+ * @parameter: describe the parameter
  *
  * Return: Always 0 (Success)
  */
 
 int main(void)
 {
-	char abc;
+	int num;
 
-	for (abc = 'a'; abc <= 'z'; abc++)
+	for(num = 0; num <= 9; num++)
 	{
-		if (abc == 'e' || abc == 'q')
-		{
-			continue;
-		}
-		putchar(abc);
+		putchar(num);
 	}
 	putchar('\n');
 	return (0);
