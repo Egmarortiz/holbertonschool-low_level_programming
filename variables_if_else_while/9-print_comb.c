@@ -12,15 +12,13 @@ int main(void)
 {
 	int hex;
 
-	for (hex = 0; hex <= 9; hex++)
+	for (hex = 0; hex < 9; hex++)
 		putchar('0' + hex);
-			if (hex < 9)
-			{
-				putchar(',');
-			}
 	if (hex < 9)
 	{
-		putchar(' ');                               }
+		putchar(',');
+		putchar(' ');
+	}
 	putchar('\n');
 	return (0);
 }
