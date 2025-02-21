@@ -5,6 +5,7 @@
  *
  * Return: 0 Always.
  */
+
 int main(void)
 {
 	putchar('_');
@@ -15,7 +16,6 @@ int main(void)
 	putchar('h');
 	putchar('a');
 	putchar('r');
-	putchar('\n');
 
 	return (0);
 }
