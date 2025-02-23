@@ -2,7 +2,9 @@
 #include "main.h"
 
 /**
- * print_alphabet_x10 - prints the alphabet
+ * _islower - checks for lowercase
+ *
+ *@c:  checks lowercase
  *
  * Return: Always 0
  */
