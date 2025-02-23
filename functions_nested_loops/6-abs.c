@@ -6,7 +6,7 @@
  *
  * @n: Parameter description (if applicable)
  *
- * Return: Always 0 
+ * Return: Always 0
  */
 
 int _abs(int n)
