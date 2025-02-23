@@ -4,7 +4,7 @@
 /**
  *print_sign - Function description
  *
- * @c: Parameter description
+ *@c: Parameter description
  *
  * Return: Always 0
  */
