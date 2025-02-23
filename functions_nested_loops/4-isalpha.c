@@ -2,8 +2,7 @@
 #include "main.h"
 
 /**
- *
- * _isalpha - checks for character
+ *_isalpha - checks for character
  *
  * @c: checks for character
  *
