@@ -1,16 +1,20 @@
+#include <unistd.h>
 #include "main.h"
 
 /**
- * main - Entry point
+ * print_alphabet - prints the alphabet
  *
- * Description: 'the program's description'
- *
- * Return: Always 0 (Success)
+ * Return: Always 0
  */
- 
- int main(void)
-{
-    print_alphabet();
-    return (0);
-}
 
+
+void print_alphabet(void)
+{
+        char letter = 'a';
+        while (letter <= 'z')
+        {
+                _putchar(letter);
+                letter++;
+        }
+        _putchar('\n');
+}
