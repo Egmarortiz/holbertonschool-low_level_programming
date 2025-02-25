@@ -11,10 +11,11 @@
 
 void print_line(int n)
 {
-	char under = '_';
-	
-	if (n > 0)
-		_putchar(under * n);
-	else
-		_putchar('\n');
+	int j;
+
+	if (n <= 0)
+		_putchar('\n');  
+
+	for (j = 0; j < n; j++)
+		_putchar('_');
 }
