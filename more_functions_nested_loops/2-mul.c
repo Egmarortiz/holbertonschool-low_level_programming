@@ -4,7 +4,8 @@
 /**
  * mul - Function description
  *
- * @a, b: Parameter description (if applicable)
+ * @a: Parameter description (if applicable)
+ * @b: Parameter description (if applicable)
  *
  * Return: Always 0
  */
