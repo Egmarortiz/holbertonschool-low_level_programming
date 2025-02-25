@@ -11,7 +11,7 @@
 
 void print_square(int size)
 {
-	int row, col; 
+	int row, col;
 
 	if (size <= 0)
 	{
