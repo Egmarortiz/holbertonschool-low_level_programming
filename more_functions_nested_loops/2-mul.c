@@ -2,16 +2,16 @@
 #include "main.h"
 
 /**
- * function_name - Function description
+ * mul - Function description
  *
- * @x: Parameter description (if applicable)
+ * @a, b: Parameter description (if applicable)
  *
  * Return: Always 0
  */
- 
- int mul(int a, int b)
+
+int mul(int a, int b)
 {
 
-  return (a * b);
+	return (a * b);
 
 }
