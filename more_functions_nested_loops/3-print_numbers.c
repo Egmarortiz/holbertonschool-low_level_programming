@@ -2,18 +2,15 @@
 #include "main.h"
 
 /**
- * function_name - Function description
- *
- * @x: Parameter description (if applicable)
+ * print_numbers - Function description
  *
  * Return: Always 0
  */
 
 void print_numbers(void)
 {
-	int num = 0;
+	int i;
 
-	while (num > 10)
-		_putchar(num);
-	num++;
+	for (i = 0; i < 10; i++)
+		_putchar(i + '0');
 }
