@@ -4,7 +4,7 @@
 /**
  * swap_int - Function description
  *
- * @a Parameter description (if applicable)
+ * @a: Parameter description (if applicable)
  *
  * @b: Parameter description (if applicable)
  *
