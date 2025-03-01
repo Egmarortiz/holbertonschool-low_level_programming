@@ -31,6 +31,7 @@ int _atoi(char *s)
 	while (*s && (*s >= '0' && *s <= '9'))
 	{
 		int digit = *s - '0';
+
 		if (sign > 0)
 			result = result * 10 + digit;
 		else
@@ -38,6 +39,6 @@ int _atoi(char *s)
 		s++;
 	}
 
-	return result;
+	return (result);
 }
 
