@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * function_name - Function description
+ * swap_int - Function description
  *
  * @a Parameter description (if applicable)
  *
