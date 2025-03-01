@@ -2,7 +2,7 @@
 #include <unistd.h>
 
 /**
- * reverse_string - reverses a string in place.
+ * rev_string - reverses a string in place.
  * @s: The string to be reversed.
  */
 void rev_string(char *s)
