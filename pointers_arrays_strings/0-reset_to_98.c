@@ -2,9 +2,9 @@
 #include "main.h"
 
 /**
- * function_name - Function description
+ * reset_to_98 - Function description
  *
- * @x: Parameter description (if applicable)
+ * @n: Parameter description (if applicable)
  *
  * Return: Always 0
  */
