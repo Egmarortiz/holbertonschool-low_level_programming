@@ -1,5 +1,5 @@
 void reset_to_98(int *n);
-void swap_int(int *a, int *b);\
+void swap_int(int *a, int *b);
 int _strlen(char *s);
 void _puts(char *str);
 void print_rev(char *s);
@@ -17,3 +17,4 @@ int _strcmp(char *s1, char *s2);
 void reverse_array(int *a, int n);
 char *string_toupper(char *);
 char *cap_string(char *);
+char *leet(char *s);
