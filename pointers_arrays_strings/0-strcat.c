@@ -2,13 +2,11 @@
 #include "main.h"
 
 /**
- * _strcat - concatenates the src string to the dest string.
+ * _strcat - concatenates
  * @dest: pointer to the destination buffer.
  * @src: pointer to the source string.
  *
- * Description: This function appends the src string to the dest string,
- * overwriting the terminating null byte (\0) at the end of dest, and then
- * adds a terminating null byte. It returns a pointer to the resulting string dest.
+ * Description: This function appends
  *
  * Return: pointer to dest.
  */
