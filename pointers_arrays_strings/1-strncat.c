@@ -13,22 +13,22 @@
  */
 char *_strncat(char *dest, char *src, int n)
 {
-    int i = 0, j = 0;
+	int i = 0, j = 0;
 
-    /* Find the end of the dest string */
-    while (dest[i] != '\0')
-        i++;
+	/* Find the end of the dest string */
+	while (dest[i] != '\0')
+		i++;
 
-    /* Append at most n bytes from src to dest */
-    while (j < n && src[j] != '\0')
-    {
-        dest[i + j] = src[j];
-        j++;
-    }
+	/* Append at most n bytes from src to dest */
+	while (j < n && src[j] != '\0')
+	{
+		dest[i + j] = src[j];
+		j++;
+	}
 
-    /* Add the terminating null byte */
-    dest[i + j] = '\0';
+	/* Add the terminating null byte */
+	dest[i + j] = '\0';
 
-    return (dest);
+	return (dest);
 }
 
