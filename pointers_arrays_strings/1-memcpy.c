@@ -2,9 +2,11 @@
 #include "main.h"
 
 /**
- * function_name - Function description
+ * *_memcpy - Function description
  *
- * @x: Parameter description (if applicable)
+ * @dest: Parameter description (if applicable)
+ *@src: Parameter description (if applicable)
+ *@n: Parameter description (if applicable)
  *
  * Return: Always 0
  */
