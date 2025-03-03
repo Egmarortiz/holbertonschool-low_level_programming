@@ -2,9 +2,11 @@
 #include "main.h"
 
 /**
- * *_memeset - Function description
+ * *_memset - Function description
  *
- * @i: Parameter description (if applicable)
+ * @s: Parameter description (if applicable)
+ * @b: Parameter description
+ * @n: Parameter description
  *
  * Return: Always 0
  */
@@ -16,6 +18,6 @@ char *_memset(char *s, char b, unsigned int n)
 	for (i = 0; i < n; i++)
 	{
 		s[i] = b;
-	}	
+	}
 	return (s);
 }
