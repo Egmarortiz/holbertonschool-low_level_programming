@@ -7,7 +7,6 @@
  *
  * @s: Parameter description (if applicable)
  * @accept: Parameter description (if applicable)
- * @a: Parameter description (if applicable)
  *
  * Return: Always 0
  */
@@ -21,7 +20,7 @@ char *_strpbrk(char *s, char *accept)
 		while (*a)
 		{
 			if (*s == *a)
-				return (char *s);
+				return (char *)(s);
 			a++;
 		}
 		s++;
