@@ -5,7 +5,8 @@
 /**
  * print_diagsums - Function description
  *
- * @x: Parameter description (if applicable)
+ * @a: Parameter description (if applicable)
+ * @size: Parameter description (if applicable)
  *
  * Return: Always 0
  */
