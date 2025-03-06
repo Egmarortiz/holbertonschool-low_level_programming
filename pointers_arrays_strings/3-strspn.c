@@ -19,8 +19,10 @@ unsigned int _strspn(char *s, char *accept)
 		int found = 0;
 		const char *a = accept;
 
-		while (*a) {
-			if (*s == *a) {
+		while (*a)
+		{
+			if (*s == *a)
+			{
 				found = 1;
 				break;
 			}
