@@ -11,19 +11,19 @@
  *
  * Return: Always 0
  */
- 
+
 int sqrt_helper(int n, int candidate)
 {
-    if (candidate * candidate == n)
-        return candidate;
-    if (candidate * candidate > n)
-        return (-1);
-    return sqrt_helper(n, candidate + 1);
+	if (candidate * candidate == n)
+		return candidate;
+	if (candidate * candidate > n)
+		return (-1);
+	return sqrt_helper(n, candidate + 1);
 }
 
 int _sqrt_recursion(int n)
 {
-    if (n < 0)
+	if (n < 0)
 		return (-1);
 	return sqrt_helper(n, 0);
 
