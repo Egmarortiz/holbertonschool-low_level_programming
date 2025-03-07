@@ -15,10 +15,10 @@
 int sqrt_helper(int n, int candidate)
 {
 	if (candidate * candidate == n)
-		return candidate;
+		return (candidate);
 	if (candidate * candidate > n)
 		return (-1);
-	return sqrt_helper(n, candidate + 1);
+	return (sqrt_helper(n, candidate + 1));
 }
 
 int _sqrt_recursion(int n)
