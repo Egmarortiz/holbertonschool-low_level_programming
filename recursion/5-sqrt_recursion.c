@@ -2,10 +2,8 @@
 #include "main.h"
 
 /**
- * _sqrt_recursion - Function description
  * sqrt_helper - description
  *
- * @n: Parameter description (if applicable)
  * @n: Parameter description (if applicable)
  * @candidate: Parameter description (if applicable)
  *
@@ -20,6 +18,14 @@ int sqrt_helper(int n, int candidate)
 		return (-1);
 	return (sqrt_helper(n, candidate + 1));
 }
+
+/**
+ * _sqrt_recursion - Function description
+ *
+ * @n: Parameter description (if applicable)
+ *
+ * Return: Always 0
+ */
 
 int _sqrt_recursion(int n)
 {
