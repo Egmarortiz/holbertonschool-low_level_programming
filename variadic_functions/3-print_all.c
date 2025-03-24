@@ -1,31 +1,3 @@
-#include <stdarg.h>
-#include <stdio.h>
-
-void print_char(va_list ap)
-{
-    printf("%c", (char)va_arg(ap, int));
-}
-
-void print_int(va_list ap)
-{
-    printf("%d", va_arg(ap, int));
-}
-
-void print_float(va_list ap)
-{
-    printf("%f", va_arg(ap, double));
-}
-
-void print_string(va_list ap)
-{
-    char *s = va_arg(ap, char *);
-    if (!s)
-        printf("(nil)");
-    else
-        printf("%s", s);
-}
-
-
 #include "variadic_functions.h"
 #include <stdarg.h>
 #include <stdio.h>
