@@ -8,7 +8,7 @@
  */
 void print_char(va_list ap)
 {
-    printf("%c", (char)va_arg(ap, int));
+	printf("%c", (char)va_arg(ap, int));
 }
 
 /**
@@ -17,7 +17,7 @@ void print_char(va_list ap)
  */
 void print_int(va_list ap)
 {
-    printf("%d", va_arg(ap, int));
+	printf("%d", va_arg(ap, int));
 }
 
 /**
@@ -26,8 +26,8 @@ void print_int(va_list ap)
  */
 void print_float(va_list ap)
 {
-    /* floats are promoted to double in variadic functions */
-    printf("%f", va_arg(ap, double));
+	/* floats are promoted to double in variadic functions */
+	printf("%f", va_arg(ap, double));
 }
 
 /**
@@ -36,13 +36,13 @@ void print_float(va_list ap)
  */
 void print_string(va_list ap)
 {
-    char *s = va_arg(ap, char *);
-    char *arr[2];
+	char *s = va_arg(ap, char *);
+	char *arr[2];
 
-    arr[0] = "(nil)";
-    arr[1] = s;
-    /* Use (s != 0) as index: if s is NULL, (s != 0) is 0; otherwise 1 */
-    printf("%s", arr[s != 0]);
+	arr[0] = "(nil)";
+	arr[1] = s;
+	/* Use (s != 0) as index: if s is NULL, (s != 0) is 0; otherwise 1 */
+	printf("%s", arr[s != 0]);
 }
 
 /**
@@ -64,48 +64,48 @@ void print_string(va_list ap)
  */
 void print_all(const char * const format, ...)
 {
-    va_list args;    /* variable 1 */
-    int i = 0;       /* variable 2: index into format */
-    int j = 0;       /* variable 3: index into mapping array */
-    char *sep = "";  /* variable 4: separator string */
+	va_list args;    /* variable 1 */
+	int i = 0;       /* variable 2: index into format */
+	int j = 0;       /* variable 3: index into mapping array */
+	char *sep = "";  /* variable 4: separator string */
 
-    /* Define mapping structure */
-    typedef struct print
-    {
-        char t;
-        void (*f)(va_list);
-    } print_t;
-    print_t funcs[] = { /* variable 5: mapping array */
-        {'c', print_char},
-        {'i', print_int},
-        {'f', print_float},
-        {'s', print_string},
-        {0, NULL}
-    };
+	/* Define mapping structure */
+	typedef struct print
+	{
+		char t;
+		void (*f)(va_list);
+	} print_t;
+	print_t funcs[] = { /* variable 5: mapping array */
+		{'c', print_char},
+		{'i', print_int},
+		{'f', print_float},
+		{'s', print_string},
+		{0, NULL}
+	};
 
-    if (!format) /* if statement 1 */
-    {
-        printf("\n");
-        return;
-    }
-    va_start(args, format);
-    while (format[i]) /* while loop 1 */
-    {
-        j = 0;
-        while (funcs[j].t) /* while loop 2 */
-        {
-            if (format[i] == funcs[j].t) /* if statement 2 */
-            {
-                printf("%s", sep);
-                funcs[j].f(args);
-                sep = ", ";
-                break;
-            }
-            j++;
-        }
-        i++;
-    }
-    va_end(args);
-    printf("\n");
+	if (!format) /* if statement 1 */
+	{
+		printf("\n");
+		return;
+	}
+	va_start(args, format);
+	while (format[i]) /* while loop 1 */
+	{
+		j = 0;
+		while (funcs[j].t) /* while loop 2 */
+		{
+			if (format[i] == funcs[j].t) /* if statement 2 */
+			{
+				printf("%s", sep);
+				funcs[j].f(args);
+				sep = ", ";
+				break;
+			}
+			j++;
+		}
+		i++;
+	}
+	va_end(args);
+	printf("\n");
 }
 
