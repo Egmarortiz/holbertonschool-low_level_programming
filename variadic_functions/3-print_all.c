@@ -3,91 +3,46 @@
 #include <stdio.h>
 
 /**
- * print_char - prints a char.
- * @ap: va_list.
+ * print_all - Function that prints anything
+ * @format: list of types of arguments passed to the function
  */
-void print_char(va_list ap)
-{
-	printf("%c", (char)va_arg(ap, int));
-}
 
-/**
- * print_int - prints an int.
- * @ap: va_list.
- */
-void print_int(va_list ap)
-{
-	printf("%d", va_arg(ap, int));
-}
-
-/**
- * print_float - prints a float.
- * @ap: va_list.
- */
-void print_float(va_list ap)
-{
-	printf("%f", va_arg(ap, double));
-}
-
-/**
- * print_string - prints a string.
- * @ap: va_list.
- */
-void print_string(va_list ap)
-{
-	char *s = va_arg(ap, char *);
-	char *arr[2];
-
-	arr[0] = "(nil)";
-	arr[1] = s;
-	printf("%s", arr[s != 0]);
-}
-
-/**
- * print_all - prints anything.
- * @format: list of types.
- */
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	int i = 0;
-	int j = 0;
-	char *sep = "";
-	struct print
-	{
-		char t;
-		void (*f)(va_list);
-	};
-	struct print funcs[] = {
-		{'c', print_char},
-		{'i', print_int},
-		{'f', print_float},
-		{'s', print_string},
-		{0, NULL}
-	};
-	if (!format)
-	{
-		printf("\n");
-		return;
-	}
+	unsigned int i = 0;
+	char *str;
+	char *separator = "";
+
 	va_start(args, format);
-	while (format[i])
+
+	while (format && format[i])
 	{
-		j = 0;
-		while (funcs[j].t)
+		switch (format[i])
 		{
-			if (format[i] == funcs[j].t)
-			{
-				printf("%s", sep);
-				funcs[j].f(args);
-				sep = ", ";
+			case 'c':
+				printf("%s%c", separator, va_arg(args, int));
 				break;
-			}
-			j++;
+			case 'i':
+				printf("%s%d", separator, va_arg(args, int));
+				break;
+			case 'f':
+				printf("%s%f", separator, va_arg(args, double));
+				break;
+			case 's':
+				str = va_arg(args, char *);
+				if (!str)
+					str = "(nil)";
+				printf("%s%s", separator, str);
+				break;
+			default:
+				i++;
+				continue;
 		}
+		separator = ", ";
 		i++;
 	}
+
 	va_end(args);
 	printf("\n");
 }
-
