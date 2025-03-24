@@ -1,78 +1,69 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-/**
- * print_char - prints a char.
- * @ap: va_list containing the char.
- */
 void print_char(va_list ap)
 {
-	printf("%c", (char)va_arg(ap, int));
+    printf("%c", (char)va_arg(ap, int));
 }
 
-/**
- * print_int - prints an int.
- * @ap: va_list containing the int.
- */
 void print_int(va_list ap)
 {
-	printf("%d", va_arg(ap, int));
+    printf("%d", va_arg(ap, int));
 }
 
-/**
- * print_float - prints a float.
- * @ap: va_list containing the float.
- */
 void print_float(va_list ap)
 {
-	/* float arguments are promoted to double in variadic functions */
-	printf("%f", va_arg(ap, double));
+    printf("%f", va_arg(ap, double));
 }
 
-/**
- * print_string - prints a string.
- * @ap: va_list containing the string.
- */
 void print_string(va_list ap)
 {
-	char *s = va_arg(ap, char *);
-
-	if (s == NULL)
-		printf("(nil)");
-	else
-		printf("%s", s);
+    char *s = va_arg(ap, char *);
+    if (!s)
+        printf("(nil)");
+    else
+        printf("%s", s);
 }
+
 
 #include "variadic_functions.h"
 #include <stdarg.h>
 #include <stdio.h>
 
+/* Helper function prototypes */
+void print_char(va_list ap);
+void print_int(va_list ap);
+void print_float(va_list ap);
+void print_string(va_list ap);
+
 /**
  * print_all - prints anything.
  * @format: constant string with a list of types.
- * Description: Valid types:
+ *
+ * Description: The format string may contain the following characters:
  *              c: char
  *              i: integer
  *              f: float
  *              s: char * (if NULL, print (nil))
- *              Any other char is ignored.
- * Restrictions: No for, else, goto, ternary, or do...while; use at most 2 while loops, 2 if statements,
- * and declare at most 9 variables.
+ *              Any other character is ignored.
+ * Restrictions: No for, else, goto, ternary, or do...while loops;
+ * use at most 2 while loops, 2 if statements, and declare at most 9 variables.
+ * A new line is printed at the end.
  */
 void print_all(const char * const format, ...)
 {
-	va_list args;   /* Variable 1 */
-	int i = 0;      /* Variable 2: index for format string */
-	int j = 0;      /* Variable 3: index for mapping array */
-	char *sep = ""; /* Variable 4: separator string */
+	va_list args;      /* Variable 1 */
+	int i = 0;         /* Variable 2: index into format */
+	int j = 0;         /* Variable 3: index into mapping array */
+	char *sep = "";    /* Variable 4: separator string */
 
-	/* Declare a type mapping structure and an array of mappings */
+	/* Define a structure to map a type character to its print function */
 	typedef struct print
 	{
 		char t;
 		void (*f)(va_list);
 	} print_t;
-	print_t funcs[] = { /* Variable 5: mapping array */
+	print_t funcs[] = {  /* Variable 5: mapping array */
 		{'c', print_char},
 		{'i', print_int},
 		{'f', print_float},
@@ -80,18 +71,18 @@ void print_all(const char * const format, ...)
 		{0, NULL}
 	};
 
-	if (!format) /* First if statement */
+	if (!format) /* First if statement: check if format is NULL */
 	{
 		printf("\n");
 		return;
 	}
 	va_start(args, format);
-	while (format[i]) /* First while loop: iterate through format */
+	while (format[i]) /* First while loop: iterate over format */
 	{
 		j = 0;
-		while (funcs[j].t) /* Second while loop: iterate through mapping array */
+		while (funcs[j].t) /* Second while loop: search mapping array */
 		{
-			if (format[i] == funcs[j].t) /* Second if statement */
+			if (format[i] == funcs[j].t) /* Second if statement: type match */
 			{
 				printf("%s", sep);
 				funcs[j].f(args);
