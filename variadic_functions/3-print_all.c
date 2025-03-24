@@ -45,7 +45,6 @@ void print_string(va_list ap)
 
 /**
  * print_all - prints anything.
- * print - words
  * @format: list of types.
  */
 void print_all(const char * const format, ...)
@@ -53,19 +52,19 @@ void print_all(const char * const format, ...)
 	va_list args;
 	int i = 0, j = 0;
 	char *sep = "";
-struct print
-{
-    char t;
-    void (*f)(va_list);
-};
+	struct print
+	{
+		char t;
+		void (*f)(va_list);
+	};
 
-struct print funcs[] = {
-    {'c', print_char},
-    {'i', print_int},
-    {'f', print_float},
-    {'s', print_string},
-    {0, NULL}
-};
+	struct print funcs[] = {
+		{'c', print_char},
+		{'i', print_int},
+		{'f', print_float},
+		{'s', print_string},
+		{0, NULL}
+	};
 
 	if (!format)
 	{
