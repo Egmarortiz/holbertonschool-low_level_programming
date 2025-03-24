@@ -50,14 +50,14 @@ void print_string(va_list ap)
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	int i = 0, j = 0;
+	int i = 0;
+	int j = 0;
 	char *sep = "";
 	struct print
 	{
 		char t;
 		void (*f)(va_list);
 	};
-
 	struct print funcs[] = {
 		{'c', print_char},
 		{'i', print_int},
@@ -65,7 +65,6 @@ void print_all(const char * const format, ...)
 		{'s', print_string},
 		{0, NULL}
 	};
-
 	if (!format)
 	{
 		printf("\n");
