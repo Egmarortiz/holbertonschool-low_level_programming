@@ -1,17 +1,5 @@
-#include "variadic_functions.h"
 #include <stdarg.h>
 #include <stdio.h>
-
-/**
- * struct print - associates a type with its print function.
- * @t: the type identifier.
- * @f: pointer to the print function.
- */
-typedef struct print
-{
-	char t;
-	void (*f)(va_list);
-} print_t;
 
 /**
  * print_char - prints a char.
@@ -47,39 +35,49 @@ void print_float(va_list ap)
  */
 void print_string(va_list ap)
 {
-	char *str = va_arg(ap, char *);
+	char *s = va_arg(ap, char *);
 
-	if (!str)
+	if (s == NULL)
 		printf("(nil)");
 	else
-		printf("%s", str);
+		printf("%s", s);
 }
 
+#include "variadic_functions.h"
+#include <stdarg.h>
+#include <stdio.h>
+
 /**
- * print_all - prints anything based on the format.
- * @format: a constant string with the list of types.
- *
- * Description: format is composed of the characters:
- *              c: char, i: int, f: float, s: string.
- *              Any other character is ignored.
- *              Numbers are printed separated by a comma and space.
- *              A new line is printed at the end.
- * Restrictions:
- * - No for, goto, ternary operator, else, or do ... while loops.
- * - Maximum of 2 while loops and 2 if statements in this function.
- * - Maximum of 9 variables can be declared.
+ * print_all - prints anything.
+ * @format: constant string with a list of types.
+ * Description: Valid types:
+ *              c: char
+ *              i: integer
+ *              f: float
+ *              s: char * (if NULL, print (nil))
+ *              Any other char is ignored.
+ * Restrictions: No for, else, goto, ternary, or do...while; use at most 2 while loops, 2 if statements,
+ * and declare at most 9 variables.
  */
 void print_all(const char * const format, ...)
 {
-	va_list ap;
-	int i = 0, j;
-	char *sep = "";
-	print_t funcs[] = {
+	va_list args;   /* Variable 1 */
+	int i = 0;      /* Variable 2: index for format string */
+	int j = 0;      /* Variable 3: index for mapping array */
+	char *sep = ""; /* Variable 4: separator string */
+
+	/* Declare a type mapping structure and an array of mappings */
+	typedef struct print
+	{
+		char t;
+		void (*f)(va_list);
+	} print_t;
+	print_t funcs[] = { /* Variable 5: mapping array */
 		{'c', print_char},
 		{'i', print_int},
 		{'f', print_float},
 		{'s', print_string},
-		{'\0', NULL}
+		{0, NULL}
 	};
 
 	if (!format) /* First if statement */
@@ -87,16 +85,16 @@ void print_all(const char * const format, ...)
 		printf("\n");
 		return;
 	}
-	va_start(ap, format);
-	while (format[i]) /* Outer while loop */
+	va_start(args, format);
+	while (format[i]) /* First while loop: iterate through format */
 	{
 		j = 0;
-		while (funcs[j].t) /* Inner while loop */
+		while (funcs[j].t) /* Second while loop: iterate through mapping array */
 		{
 			if (format[i] == funcs[j].t) /* Second if statement */
 			{
 				printf("%s", sep);
-				funcs[j].f(ap);
+				funcs[j].f(args);
 				sep = ", ";
 				break;
 			}
@@ -104,7 +102,7 @@ void print_all(const char * const format, ...)
 		}
 		i++;
 	}
-	va_end(ap);
+	va_end(args);
 	printf("\n");
 }
 
