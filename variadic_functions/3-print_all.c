@@ -4,7 +4,7 @@
 
 /**
  * print_char - prints a char.
- * @ap: va_list containing the char.
+ * @ap: va_list.
  */
 void print_char(va_list ap)
 {
@@ -13,7 +13,7 @@ void print_char(va_list ap)
 
 /**
  * print_int - prints an int.
- * @ap: va_list containing the int.
+ * @ap: va_list.
  */
 void print_int(va_list ap)
 {
@@ -22,7 +22,7 @@ void print_int(va_list ap)
 
 /**
  * print_float - prints a float.
- * @ap: va_list containing the float.
+ * @ap: va_list.
  */
 void print_float(va_list ap)
 {
@@ -31,39 +31,33 @@ void print_float(va_list ap)
 
 /**
  * print_string - prints a string.
- * @ap: va_list containing the string.
+ * @ap: va_list.
  */
 void print_string(va_list ap)
 {
 	char *s = va_arg(ap, char *);
+	char *arr[2];
 
-	if (s == NULL)
-	{
-		printf("(nil)");
-		return;
-	}
-	printf("%s", s);
+	arr[0] = "(nil)";
+	arr[1] = s;
+	printf("%s", arr[s != 0]);
 }
 
 /**
  * print_all - prints anything.
- * @format: constant string with list of types.
+ * @format: list of types.
  */
 void print_all(const char * const format, ...)
 {
-	va_list args;   /* Variable 1 */
-	int i = 0;      /* Variable 2 */
-	int j = 0;      /* Variable 3 */
-	char *sep = ""; /* Variable 4 */
-
-	/* Mapping structure and array */
-	struct print
+	va_list args;
+	int i = 0, j = 0;
+	char *sep = "";
+	typedef struct print
 	{
 		char t;
 		void (*f)(va_list);
-	};
-
-	struct print funcs[] = { /* Variable 5 */
+	} print_t;
+	print_t funcs[] = {
 		{'c', print_char},
 		{'i', print_int},
 		{'f', print_float},
@@ -71,18 +65,18 @@ void print_all(const char * const format, ...)
 		{0, NULL}
 	};
 
-	if (!format) /* if statement 1 */
+	if (!format)
 	{
 		printf("\n");
 		return;
 	}
 	va_start(args, format);
-	while (format[i]) /* while loop 1 */
+	while (format[i])
 	{
 		j = 0;
-		while (funcs[j].t) /* while loop 2 */
+		while (funcs[j].t)
 		{
-			if (format[i] == funcs[j].t) /* if statement 2 */
+			if (format[i] == funcs[j].t)
 			{
 				printf("%s", sep);
 				funcs[j].f(args);
