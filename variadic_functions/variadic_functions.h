@@ -12,5 +12,4 @@ void print_int(va_list ap);
 void print_float(va_list ap);
 void print_string(va_list ap);
 
-
 #endif
