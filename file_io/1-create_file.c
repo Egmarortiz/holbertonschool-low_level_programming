@@ -20,8 +20,6 @@ int create_file(const char *filename, char *text_content)
 	if (filename == NULL)
 		return (-1);
 
-	/* Open file: create if not exists, truncate if exists, write-only mode.
-	   Set permissions to rw------- (0600). */
 	fd = open(filename, O_CREAT | O_TRUNC | O_WRONLY, 0600);
 	if (fd == -1)
 		return (-1);
