@@ -19,8 +19,6 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (filename == NULL)
 		return (-1);
 
-	/* Open the file in write-only mode with append flag.
-	   Do not create the file if it doesn't exist. */
 	fd = open(filename, O_WRONLY | O_APPEND);
 	if (fd == -1)
 		return (-1);
